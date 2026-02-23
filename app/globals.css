@@ -1,0 +1,54 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@theme {
+  --color-pc-bg: #F6EDE6;
+  --color-pc-navy: #153E63;
+  --color-pc-navy-700: #0F3350;
+  --color-pc-terracotta: #C2462C;
+  --color-pc-terracotta-700: #9A3523;
+  --color-pc-seaglass: #7FB7A4;
+  --color-pc-gold: #D9A24A;
+  --color-pc-gray-700: #333333;
+  --color-pc-gray-300: #E6E2DE;
+  --color-pc-muted: #8B8B8B;
+
+  --font-serif: var(--font-playfair);
+  --font-sans: var(--font-poppins);
+}
+
+:root {
+  --pc-bg: #F6EDE6;
+  --pc-navy: #153E63;
+  --pc-navy-700: #0F3350;
+  --pc-terracotta: #C2462C;
+  --pc-terracotta-700: #9A3523;
+  --pc-seaglass: #7FB7A4;
+  --pc-gold: #D9A24A;
+  --pc-gray-700: #333333;
+  --pc-gray-300: #E6E2DE;
+  --pc-muted: #8B8B8B;
+}
+
+body {
+  background-color: var(--pc-bg);
+  color: var(--pc-gray-700);
+  font-family: var(--font-sans), sans-serif;
+}
+
+h1, h2, h3, h4, .font-serif {
+  font-family: var(--font-serif), serif;
+  color: var(--pc-navy);
+}
+
+.pc-focus-ring {
+  @apply focus:outline-none focus:ring-3 focus:ring-pc-seaglass/60;
+}
+
+.pc-card {
+  @apply bg-pc-gray-300/50 border border-pc-navy/5 rounded-2xl overflow-hidden transition-all duration-200;
+}
+
+.pc-container {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}

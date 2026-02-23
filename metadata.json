@@ -1,0 +1,7 @@
+{
+  "name": "PEI Cooks - Community Hub & Cookbook",
+  "description": "A highly dynamic, interactive landing page for PEI Cooks, featuring community recipes, events, competitions, and cookbook sales.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
