@@ -1,11 +1,11 @@
 'use client';
 
 import React, { useState } from 'react';
-import { 
-  TopNav, Button, Badge, Footer, OrderModal 
+import {
+  TopNav, Button, Badge, Footer, OrderModal
 } from '@/components/ui-library';
-import { 
-  BookOpen, Star, CheckCircle2, ShoppingCart, 
+import {
+  BookOpen, Star, CheckCircle2, ShoppingCart,
   ArrowRight, Users, Utensils, Award, ChevronRight,
   Heart, Share2, Printer
 } from 'lucide-react';
@@ -25,16 +25,16 @@ export default function CookbookDetailPage() {
           {/* HERO SECTION */}
           <section className="py-12 lg:py-20">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 className="relative"
               >
                 <div className="relative aspect-[3/4] w-full max-w-md mx-auto shadow-2xl rounded-[2rem] overflow-hidden border-8 border-white">
-                  <Image 
-                    src="https://picsum.photos/seed/cookbook-detail/800/1066" 
-                    alt="Cookbook Cover" 
-                    fill 
+                  <Image
+                    src="https://images.unsplash.com/photo-1466637574441-749b8f19452f?w=800&h=1066&fit=crop"
+                    alt="Cookbook Cover"
+                    fill
                     className="object-cover"
                     referrerPolicy="no-referrer"
                   />
@@ -58,7 +58,7 @@ export default function CookbookDetailPage() {
                 </div>
               </motion.div>
 
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 className="space-y-8"
@@ -152,7 +152,12 @@ export default function CookbookDetailPage() {
                 {[1, 2, 3, 4].map(i => (
                   <div key={i} className="space-y-4 group cursor-pointer">
                     <div className="aspect-square rounded-2xl overflow-hidden relative grayscale group-hover:grayscale-0 transition-all duration-500">
-                      <Image src={`https://picsum.photos/seed/cook-c${i}/400/400`} alt="Cook" fill className="object-cover" referrerPolicy="no-referrer" />
+                      <Image src={[
+                        'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=400&fit=crop',
+                        'https://images.unsplash.com/photo-1607631568010-a87245c0daf8?w=400&h=400&fit=crop',
+                        'https://images.unsplash.com/photo-1466637574441-749b8f19452f?w=400&h=400&fit=crop',
+                        'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=400&h=400&fit=crop',
+                      ][i - 1]} alt="Cook" fill className="object-cover" referrerPolicy="no-referrer" />
                     </div>
                     <div>
                       <h4 className="font-serif text-xl">Annie Gallant</h4>
@@ -198,7 +203,7 @@ export default function CookbookDetailPage() {
                     <div className="flex justify-between items-start mb-4">
                       <div className="flex items-center gap-3">
                         <div className="w-10 h-10 rounded-full overflow-hidden relative">
-                          <Image src={`https://picsum.photos/seed/rev${i}/100/100`} alt="User" fill className="object-cover" referrerPolicy="no-referrer" />
+                          <Image src={i === 1 ? 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=100&h=100&fit=crop' : 'https://images.unsplash.com/photo-1607631568010-a87245c0daf8?w=100&h=100&fit=crop'} alt="User" fill className="object-cover" referrerPolicy="no-referrer" />
                         </div>
                         <div>
                           <p className="font-bold text-sm">Heather MacDonald</p>

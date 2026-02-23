@@ -1,12 +1,12 @@
 'use client';
 
 import React, { useState } from 'react';
-import { 
-  TopNav, Button, Badge, Footer, OrderModal, Input 
+import {
+  TopNav, Button, Badge, Footer, OrderModal, Input
 } from '@/components/ui-library';
 import { cn } from '@/lib/utils';
-import { 
-  MapPin, Search, Filter, Store, Phone, Globe, 
+import {
+  MapPin, Search, Filter, Store, Phone, Globe,
   Clock, ChevronRight, Star, ExternalLink, X, Info
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
@@ -18,7 +18,7 @@ const vendors = [
     name: "Blue Bay Mussels",
     category: "Seafood",
     location: "Rustico, PEI",
-    image: "https://picsum.photos/seed/v1/400/300",
+    image: "https://images.unsplash.com/photo-1476124369491-e7addf5db371?w=400&h=300&fit=crop",
     rating: 4.9,
     reviews: 128,
     isFeatured: true,
@@ -29,7 +29,7 @@ const vendors = [
     name: "Red Dirt Farms",
     category: "Produce",
     location: "Albany, PEI",
-    image: "https://picsum.photos/seed/v2/400/300",
+    image: "https://images.unsplash.com/photo-1488459716781-31db52582fe9?w=400&h=300&fit=crop",
     rating: 4.8,
     reviews: 95,
     isFeatured: false,
@@ -40,7 +40,7 @@ const vendors = [
     name: "Island Artisan Cheese",
     category: "Dairy",
     location: "New Glasgow, PEI",
-    image: "https://picsum.photos/seed/v3/400/300",
+    image: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400&h=300&fit=crop",
     rating: 5.0,
     reviews: 64,
     isFeatured: true,
@@ -51,7 +51,7 @@ const vendors = [
     name: "Coastal Honey Co.",
     category: "Pantry",
     location: "Souris, PEI",
-    image: "https://picsum.photos/seed/v4/400/300",
+    image: "https://images.unsplash.com/photo-1495521821757-a1efb6729352?w=400&h=300&fit=crop",
     rating: 4.7,
     reviews: 42,
     isFeatured: false,
@@ -80,9 +80,9 @@ export default function VendorsPage() {
             <div className="flex flex-wrap items-center gap-3">
               <div className="relative flex-grow lg:w-64">
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-pc-muted" size={16} />
-                <input 
-                  type="text" 
-                  placeholder="Search vendors..." 
+                <input
+                  type="text"
+                  placeholder="Search vendors..."
                   className="w-full pl-10 pr-4 py-2 bg-pc-bg border border-pc-gray-300 rounded-xl text-sm focus:border-pc-navy pc-focus-ring"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
@@ -107,14 +107,14 @@ export default function VendorsPage() {
             </div>
 
             {vendors.map(vendor => (
-              <motion.div 
+              <motion.div
                 key={vendor.id}
                 whileHover={{ x: 4 }}
                 onClick={() => setSelectedVendor(vendor)}
                 className={cn(
                   "p-4 rounded-2xl border transition-all cursor-pointer group",
-                  selectedVendor?.id === vendor.id 
-                    ? "bg-pc-navy text-white border-pc-navy shadow-lg" 
+                  selectedVendor?.id === vendor.id
+                    ? "bg-pc-navy text-white border-pc-navy shadow-lg"
                     : "bg-white border-pc-navy/5 hover:border-pc-terracotta/30"
                 )}
               >
@@ -184,7 +184,7 @@ export default function VendorsPage() {
             {/* VENDOR OVERLAY (ON CLICK) */}
             <AnimatePresence>
               {selectedVendor && (
-                <motion.div 
+                <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 20 }}
@@ -192,7 +192,7 @@ export default function VendorsPage() {
                 >
                   <div className="relative h-40">
                     <Image src={selectedVendor.image} alt={selectedVendor.name} fill className="object-cover" referrerPolicy="no-referrer" />
-                    <button 
+                    <button
                       onClick={() => setSelectedVendor(null)}
                       className="absolute top-3 right-3 p-2 bg-white/90 backdrop-blur rounded-full text-pc-navy hover:text-pc-terracotta shadow-sm"
                     >

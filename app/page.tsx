@@ -204,10 +204,10 @@ export default function HomePage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
-              { name: "Annie Gallant", location: "Abram-Village", image: "https://picsum.photos/seed/annie/400/400", bio: "Annie has been perfecting her Acadian meat pie for over 40 years." },
-              { name: "Mary MacDonald", location: "Souris", image: "https://picsum.photos/seed/mary/400/400", bio: "A third-generation lobster fisher with a passion for coastal cooking." },
-              { name: "John Peters", location: "Borden-Carleton", image: "https://picsum.photos/seed/john/400/400", bio: "John specializes in traditional island preserves and root vegetables." },
-              { name: "Sarah Jenkins", location: "Charlottetown", image: "https://picsum.photos/seed/sarah/400/400", bio: "Bringing a modern twist to classic island seafood dishes." },
+              { name: "Annie Gallant", location: "Abram-Village", image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=400&fit=crop", bio: "Annie has been perfecting her Acadian meat pie for over 40 years." },
+              { name: "Mary MacDonald", location: "Souris", image: "https://images.unsplash.com/photo-1607631568010-a87245c0daf8?w=400&h=400&fit=crop", bio: "A third-generation lobster fisher with a passion for coastal cooking." },
+              { name: "John Peters", location: "Borden-Carleton", image: "https://images.unsplash.com/photo-1466637574441-749b8f19452f?w=400&h=400&fit=crop", bio: "John specializes in traditional island preserves and root vegetables." },
+              { name: "Sarah Jenkins", location: "Charlottetown", image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=400&h=400&fit=crop", bio: "Bringing a modern twist to classic island seafood dishes." },
             ].map((cook, i) => (
               <motion.div
                 key={i}
@@ -245,7 +245,7 @@ export default function HomePage() {
             >
               <div className="relative aspect-video">
                 <Image
-                  src="https://picsum.photos/seed/feature/800/600"
+                  src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=800&h=600&fit=crop"
                   alt="Featured Recipe"
                   fill
                   className="object-cover"
@@ -266,9 +266,9 @@ export default function HomePage() {
               <h3 className="text-2xl font-serif">Past Features</h3>
               <div className="space-y-4">
                 {[
-                  { title: "Acadian Meat Pie", date: "Last Week", image: "https://picsum.photos/seed/p1/200/200" },
-                  { title: "Wild Blueberry Grunt", date: "2 Weeks Ago", image: "https://picsum.photos/seed/p2/200/200" },
-                  { title: "Island Potato Salad", date: "3 Weeks Ago", image: "https://picsum.photos/seed/p3/200/200" },
+                  { title: "Acadian Meat Pie", date: "Last Week", image: "https://images.unsplash.com/photo-1542010589005-d1eacc3918f2?w=200&h=200&fit=crop" },
+                  { title: "Wild Blueberry Grunt", date: "2 Weeks Ago", image: "https://images.unsplash.com/photo-1488477181946-6428a0291777?w=200&h=200&fit=crop" },
+                  { title: "Island Potato Salad", date: "3 Weeks Ago", image: "https://images.unsplash.com/photo-1512058564366-18510be2db19?w=200&h=200&fit=crop" },
                 ].map((recipe, i) => (
                   <motion.div
                     key={i}
@@ -394,7 +394,7 @@ export default function HomePage() {
                 className="relative aspect-square max-w-sm mx-auto rounded-3xl overflow-hidden shadow-2xl border-8 border-white"
               >
                 <Image
-                  src="https://picsum.photos/seed/profile/600/600"
+                  src="https://images.unsplash.com/photo-1466637574441-749b8f19452f?w=600&h=600&fit=crop"
                   alt="Profile Frame Preview"
                   fill
                   className="object-cover"
@@ -543,10 +543,10 @@ export default function HomePage() {
           <div className="grid lg:grid-cols-3 gap-12">
             <div className="lg:col-span-2 grid sm:grid-cols-2 gap-6">
               {[
-                { name: "Charlottetown Farmers Market", area: "Charlottetown", type: "Pickup Only", image: "https://picsum.photos/seed/v1/400/300" },
-                { name: "The Root Cellar", area: "Summerside", type: "Ships & Pickup", image: "https://picsum.photos/seed/v2/400/300" },
-                { name: "Island Artisans", area: "Montague", type: "Pickup Only", image: "https://picsum.photos/seed/v3/400/300" },
-                { name: "Coastal Pantry", area: "Souris", type: "Ships & Pickup", image: "https://picsum.photos/seed/v4/400/300" },
+                { name: "Charlottetown Farmers Market", area: "Charlottetown", type: "Pickup Only", image: "https://images.unsplash.com/photo-1488459716781-31db52582fe9?w=400&h=300&fit=crop" },
+                { name: "The Root Cellar", area: "Summerside", type: "Ships & Pickup", image: "https://images.unsplash.com/photo-1542223616-740d5dff7f56?w=400&h=300&fit=crop" },
+                { name: "Island Artisans", area: "Montague", type: "Pickup Only", image: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400&h=300&fit=crop" },
+                { name: "Coastal Pantry", area: "Souris", type: "Ships & Pickup", image: "https://images.unsplash.com/photo-1495521821757-a1efb6729352?w=400&h=300&fit=crop" },
               ].map((vendor, i) => (
                 <motion.div
                   key={i}
@@ -614,10 +614,10 @@ export default function HomePage() {
 
           {(() => {
             const events = [
-              { title: "Summer Harvest Dinner", date: "Aug 15, 2024", location: "Orwell Corner", price: "$65", image: "https://picsum.photos/seed/e1/600/400" },
-              { title: "Seafood Chowder Workshop", date: "Aug 22, 2024", location: "Charlottetown", price: "$45", image: "https://picsum.photos/seed/e2/600/400" },
-              { title: "Preserving the Island", date: "Sept 05, 2024", location: "Summerside", price: "$30", image: "https://picsum.photos/seed/e3/600/400" },
-              { title: "Acadian Kitchen Party", date: "Sept 12, 2024", location: "Abram-Village", price: "$25", image: "https://picsum.photos/seed/e4/600/400" },
+              { title: "Summer Harvest Dinner", date: "Aug 15, 2024", location: "Orwell Corner", price: "$65", image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&h=400&fit=crop" },
+              { title: "Seafood Chowder Workshop", date: "Aug 22, 2024", location: "Charlottetown", price: "$45", image: "https://images.unsplash.com/photo-1476124369491-e7addf5db371?w=600&h=400&fit=crop" },
+              { title: "Preserving the Island", date: "Sept 05, 2024", location: "Summerside", price: "$30", image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&h=400&fit=crop" },
+              { title: "Acadian Kitchen Party", date: "Sept 12, 2024", location: "Abram-Village", price: "$25", image: "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=600&h=400&fit=crop" },
             ];
             const visibleCount = 3;
             const maxIdx = events.length - visibleCount;
@@ -777,7 +777,7 @@ export default function HomePage() {
                 className="relative z-10 aspect-[3/4] rounded-[40px] overflow-hidden shadow-2xl"
               >
                 <Image
-                  src="https://static.wixstatic.com/media/750bbb_b6e09b17d66a4ed8a9241020175cff30~mv2.jpg/v1/crop/x_107,y_0,w_1429,h_1914/fill/w_160,h_214,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/milton.jpg"
+                  src="https://images.unsplash.com/photo-1607631568010-a87245c0daf8?w=400&h=533&fit=crop"
                   alt="Parry Milton"
                   fill
                   className="object-cover"
@@ -874,7 +874,7 @@ export default function HomePage() {
             <div className="relative">
               <div className="aspect-video rounded-[40px] overflow-hidden relative z-10 shadow-2xl">
                 <Image
-                  src="https://picsum.photos/seed/impact/800/600"
+                  src="https://images.unsplash.com/photo-1529543544282-ea669407fca3?w=800&h=600&fit=crop"
                   alt="Community Impact"
                   fill
                   className="object-cover"

@@ -1,11 +1,11 @@
 'use client';
 
 import React, { useState } from 'react';
-import { 
-  TopNav, Button, Badge, Footer, OrderModal, RecipeCard 
+import {
+  TopNav, Button, Badge, Footer, OrderModal, RecipeCard
 } from '@/components/ui-library';
-import { 
-  MapPin, Heart, Share2, Utensils, Award, 
+import {
+  MapPin, Heart, Share2, Utensils, Award,
   MessageSquare, Instagram, Facebook, Globe,
   ChevronRight, ArrowRight, Star, Clock, CheckCircle2
 } from 'lucide-react';
@@ -26,15 +26,15 @@ export default function CookProfilePage() {
           <div className="pc-container relative z-10">
             <div className="flex flex-col lg:flex-row items-center lg:items-end gap-8 lg:gap-12">
               {/* Profile Photo */}
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 className="relative w-48 h-48 lg:w-64 lg:h-64 rounded-full border-8 border-white shadow-2xl overflow-hidden shrink-0"
               >
-                <Image 
-                  src="https://picsum.photos/seed/annie/400/400" 
-                  alt="Annie Gallant" 
-                  fill 
+                <Image
+                  src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=400&fit=crop"
+                  alt="Annie Gallant"
+                  fill
                   className="object-cover"
                   referrerPolicy="no-referrer"
                 />
@@ -142,33 +142,33 @@ export default function CookProfilePage() {
               </div>
 
               <div className="grid md:grid-cols-2 gap-8">
-                <RecipeCard 
-                  title="Traditional Acadian Meat Pie" 
-                  cook="Annie Gallant" 
-                  time="2.5 hours" 
+                <RecipeCard
+                  title="Traditional Acadian Meat Pie"
+                  cook="Annie Gallant"
+                  time="2.5 hours"
                   tags={['Main', 'Traditional']}
-                  image="https://picsum.photos/seed/meatpie/600/450"
+                  image="https://images.unsplash.com/photo-1542010589005-d1eacc3918f2?w=600&h=450&fit=crop"
                 />
-                <RecipeCard 
-                  title="Rustico Raspberry Jam" 
-                  cook="Annie Gallant" 
-                  time="1 hour" 
+                <RecipeCard
+                  title="Rustico Raspberry Jam"
+                  cook="Annie Gallant"
+                  time="1 hour"
                   tags={['Pantry', 'Summer']}
-                  image="https://picsum.photos/seed/jam/600/450"
+                  image="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=600&h=450&fit=crop"
                 />
-                <RecipeCard 
-                  title="Grandmother's Tea Biscuits" 
-                  cook="Annie Gallant" 
-                  time="30 mins" 
+                <RecipeCard
+                  title="Grandmother's Tea Biscuits"
+                  cook="Annie Gallant"
+                  time="30 mins"
                   tags={['Baking', 'Breakfast']}
-                  image="https://picsum.photos/seed/biscuits/600/450"
+                  image="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=600&h=450&fit=crop"
                 />
-                <RecipeCard 
-                  title="Island Rhubarb Crisp" 
-                  cook="Annie Gallant" 
-                  time="45 mins" 
+                <RecipeCard
+                  title="Island Rhubarb Crisp"
+                  cook="Annie Gallant"
+                  time="45 mins"
                   tags={['Dessert', 'Seasonal']}
-                  image="https://picsum.photos/seed/rhubarb/600/450"
+                  image="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&h=450&fit=crop"
                 />
               </div>
 

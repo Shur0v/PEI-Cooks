@@ -6,7 +6,8 @@ import {
   ChevronRight, ArrowRight, Star, Share2, Printer,
   CheckCircle2, AlertCircle, Clock, Users, UtensilsCrossed,
   Filter, Grid, List, LayoutDashboard, BookOpen, UserCircle,
-  Store, MessageSquare, Trophy, Plus, Trash2, Check, XCircle
+  Store, MessageSquare, Trophy, Plus, Trash2, Check, XCircle,
+  Facebook, Instagram, Twitter
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { cn, formatCurrency, generateRefCode } from '@/lib/utils';
@@ -542,13 +543,16 @@ export const Footer = () => {
             <p className="text-sm text-white/60 leading-relaxed">
               Celebrating the flavors and stories of Prince Edward Island. A community-driven initiative to preserve our culinary heritage.
             </p>
-            <div className="flex gap-4">
-              {['Instagram', 'Facebook', 'Twitter'].map(social => (
-                <a key={social} href="#" className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-pc-terracotta transition-colors">
-                  <span className="sr-only">{social}</span>
-                  <div className="w-4 h-4 bg-white/80 rounded-sm" />
-                </a>
-              ))}
+            <div className="flex gap-3">
+              <a href="#" aria-label="Instagram" className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-gradient-to-br hover:from-purple-500 hover:to-pink-500 transition-all duration-300 group">
+                <Instagram size={16} className="text-white/70 group-hover:text-white transition-colors" />
+              </a>
+              <a href="#" aria-label="Facebook" className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#1877F2] transition-all duration-300 group">
+                <Facebook size={16} className="text-white/70 group-hover:text-white transition-colors" />
+              </a>
+              <a href="#" aria-label="Twitter / X" className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-black transition-all duration-300 group">
+                <Twitter size={16} className="text-white/70 group-hover:text-white transition-colors" />
+              </a>
             </div>
           </div>
 

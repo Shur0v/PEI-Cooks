@@ -1,11 +1,11 @@
 'use client';
 
 import React, { useState } from 'react';
-import { 
-  TopNav, Button, Badge, Footer, OrderModal, Input 
+import {
+  TopNav, Button, Badge, Footer, OrderModal, Input
 } from '@/components/ui-library';
-import { 
-  Clock, Users, Utensils, Heart, Share2, Printer, 
+import {
+  Clock, Users, Utensils, Heart, Share2, Printer,
   ChevronRight, Check, ArrowLeft, Camera, MessageSquare, ShoppingCart
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
@@ -58,10 +58,10 @@ export default function RecipeDetailPage() {
             <div className="lg:col-span-8 space-y-12">
               {/* HERO IMAGE */}
               <div className="relative aspect-[16/9] rounded-3xl overflow-hidden shadow-xl">
-                <Image 
-                  src="https://picsum.photos/seed/lobster-detail/1200/800" 
-                  alt="Lobster Roll" 
-                  fill 
+                <Image
+                  src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=1200&h=800&fit=crop"
+                  alt="Lobster Roll"
+                  fill
                   className="object-cover"
                   referrerPolicy="no-referrer"
                 />
@@ -86,7 +86,7 @@ export default function RecipeDetailPage() {
                 <div className="flex flex-wrap items-center gap-8 py-6 border-y border-pc-navy/5">
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 rounded-full overflow-hidden relative">
-                      <Image src="https://picsum.photos/seed/mary/100/100" alt="Mary" fill className="object-cover" referrerPolicy="no-referrer" />
+                      <Image src="https://images.unsplash.com/photo-1607631568010-a87245c0daf8?w=100&h=100&fit=crop" alt="Mary" fill className="object-cover" referrerPolicy="no-referrer" />
                     </div>
                     <div>
                       <p className="text-[10px] font-bold text-pc-muted uppercase tracking-widest">Recipe by</p>
@@ -112,7 +112,7 @@ export default function RecipeDetailPage() {
                     </div>
                   </div>
                 </div>
-                
+
                 <p className="mt-8 text-lg text-pc-gray-700 leading-relaxed">
                   &quot;This is the quintessential taste of a PEI summer. The key is using fresh, cold-water lobster and not over-complicating the dressing. Let the lobster be the star!&quot;
                 </p>
@@ -157,9 +157,9 @@ export default function RecipeDetailPage() {
                 <div className="relative z-10 max-w-md">
                   <h3 className="text-3xl font-serif mb-4">Cooked this recipe?</h3>
                   <p className="text-white/70 mb-8">Share your creation with the community! Upload a photo and let Mary know how it turned out.</p>
-                  <Button 
-                    variant="accent" 
-                    size="lg" 
+                  <Button
+                    variant="accent"
+                    size="lg"
                     leftIcon={<Camera size={20} />}
                     onClick={() => setIsCookedModalOpen(true)}
                   >
@@ -181,7 +181,7 @@ export default function RecipeDetailPage() {
               {/* COOKBOOK PROMO */}
               <div className="pc-card p-6 bg-pc-gold/10 border-pc-gold/20">
                 <div className="relative aspect-[3/4] rounded-xl overflow-hidden mb-4 shadow-md">
-                  <Image src="https://picsum.photos/seed/book/400/533" alt="Cookbook" fill className="object-cover" referrerPolicy="no-referrer" />
+                  <Image src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=400&h=533&fit=crop" alt="Cookbook" fill className="object-cover" referrerPolicy="no-referrer" />
                 </div>
                 <h4 className="font-serif text-lg mb-2">Love this recipe?</h4>
                 <p className="text-xs text-pc-muted mb-4">Find 150+ more island classics in our community cookbook.</p>
@@ -195,7 +195,11 @@ export default function RecipeDetailPage() {
                   {[1, 2, 3].map(i => (
                     <div key={i} className="flex gap-4 p-3 bg-white rounded-2xl border border-pc-navy/5 hover:border-pc-terracotta/30 transition-colors cursor-pointer group">
                       <div className="w-20 h-20 rounded-xl overflow-hidden relative shrink-0">
-                        <Image src={`https://picsum.photos/seed/rel${i}/200/200`} alt="Related" fill className="object-cover" referrerPolicy="no-referrer" />
+                        <Image src={[
+                          'https://images.unsplash.com/photo-1476124369491-e7addf5db371?w=200&h=200&fit=crop',
+                          'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=200&h=200&fit=crop',
+                          'https://images.unsplash.com/photo-1542010589005-d1eacc3918f2?w=200&h=200&fit=crop',
+                        ][i - 1]} alt="Related" fill className="object-cover" referrerPolicy="no-referrer" />
                       </div>
                       <div className="flex flex-col justify-center">
                         <h5 className="font-serif font-bold text-pc-navy group-hover:text-pc-terracotta transition-colors">Island Mussel Bake</h5>
@@ -214,14 +218,14 @@ export default function RecipeDetailPage() {
       <AnimatePresence>
         {isCookedModalOpen && (
           <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               className="absolute inset-0 bg-pc-navy/40 backdrop-blur-sm"
               onClick={() => setIsCookedModalOpen(false)}
             />
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, scale: 0.9, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
@@ -245,7 +249,7 @@ export default function RecipeDetailPage() {
                       <Input label="Your Name" placeholder="Jane Doe" />
                       <div className="space-y-1.5">
                         <label className="block text-xs font-semibold text-pc-navy uppercase tracking-wider">Your Notes</label>
-                        <textarea 
+                        <textarea
                           className="w-full px-4 py-3 bg-white border border-pc-gray-300 rounded-xl text-sm focus:border-pc-navy pc-focus-ring min-h-[100px]"
                           placeholder="How did it turn out? Any substitutions?"
                         />

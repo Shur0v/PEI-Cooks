@@ -1,12 +1,12 @@
 'use client';
 
 import React, { useState } from 'react';
-import { 
-  TopNav, Button, Badge, Footer, OrderModal, RecipeCard 
+import {
+  TopNav, Button, Badge, Footer, OrderModal, RecipeCard
 } from '@/components/ui-library';
 import { cn } from '@/lib/utils';
-import { 
-  Calendar, MapPin, Users, Filter, Search, 
+import {
+  Calendar, MapPin, Users, Filter, Search,
   ChevronRight, ArrowRight, Clock, Share2, Star
 } from 'lucide-react';
 import { motion } from 'motion/react';
@@ -20,7 +20,7 @@ const events = [
     time: "6:00 PM - 9:00 PM",
     location: "Victoria-by-the-Sea",
     price: "$85.00",
-    image: "https://picsum.photos/seed/ev1/800/600",
+    image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&h=600&fit=crop",
     tags: ["Dinner", "Featured"],
     description: "An intimate five-course dinner featuring ingredients harvested that morning from local farms."
   },
@@ -31,7 +31,7 @@ const events = [
     time: "10:00 AM - 1:00 PM",
     location: "Souris Harbour",
     price: "Free",
-    image: "https://picsum.photos/seed/ev2/800/600",
+    image: "https://images.unsplash.com/photo-1476124369491-e7addf5db371?w=800&h=600&fit=crop",
     tags: ["Workshop", "Free"],
     description: "Learn the secrets of cleaning, prepping, and steaming the perfect PEI mussels with Captain Jim."
   },
@@ -42,7 +42,7 @@ const events = [
     time: "1:00 PM - 4:00 PM",
     location: "Charlottetown Market",
     price: "$10.00",
-    image: "https://picsum.photos/seed/ev3/800/600",
+    image: "https://images.unsplash.com/photo-1488477181946-6428a0291777?w=800&h=600&fit=crop",
     tags: ["Competition", "Family"],
     description: "Our annual strawberry rhubarb pie bake-off. Come taste the entries and vote for your favorite!"
   }
@@ -73,7 +73,7 @@ export default function EventsPage() {
                 </div>
               </div>
               <div className="relative aspect-video rounded-[2.5rem] overflow-hidden shadow-2xl">
-                <Image src="https://picsum.photos/seed/evhero/1200/800" alt="Events" fill className="object-cover" referrerPolicy="no-referrer" />
+                <Image src="https://images.unsplash.com/photo-1529543544282-ea669407fca3?w=1200&h=800&fit=crop" alt="Events" fill className="object-cover" referrerPolicy="no-referrer" />
                 <div className="absolute inset-0 bg-pc-navy/20" />
               </div>
             </div>
@@ -83,8 +83,8 @@ export default function EventsPage() {
           <div className="bg-white p-6 rounded-3xl border border-pc-navy/5 shadow-sm mb-12 flex flex-col md:flex-row justify-between items-center gap-6">
             <div className="flex gap-4 overflow-x-auto pb-2 md:pb-0 w-full md:w-auto">
               {['All Events', 'Workshops', 'Dinners', 'Competitions', 'Markets'].map((cat, i) => (
-                <button 
-                  key={cat} 
+                <button
+                  key={cat}
                   className={cn(
                     "px-4 py-2 rounded-xl text-sm font-semibold whitespace-nowrap transition-all",
                     i === 0 ? "bg-pc-navy text-white shadow-md" : "text-pc-muted hover:bg-pc-bg"
@@ -97,9 +97,9 @@ export default function EventsPage() {
             <div className="flex items-center gap-3 w-full md:w-auto">
               <div className="relative flex-grow md:w-64">
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-pc-muted" size={16} />
-                <input 
-                  type="text" 
-                  placeholder="Search events..." 
+                <input
+                  type="text"
+                  placeholder="Search events..."
                   className="w-full pl-10 pr-4 py-2 bg-pc-bg border border-pc-gray-300 rounded-xl text-sm focus:border-pc-navy pc-focus-ring"
                 />
               </div>
@@ -110,7 +110,7 @@ export default function EventsPage() {
           {/* EVENTS GRID */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {events.map(event => (
-              <motion.div 
+              <motion.div
                 key={event.id}
                 whileHover={{ y: -8 }}
                 className="pc-card bg-white group cursor-pointer"
@@ -157,9 +157,9 @@ export default function EventsPage() {
                 Join our mailing list to get early access to workshop tickets and seasonal event announcements.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-                <input 
-                  type="email" 
-                  placeholder="Enter your email" 
+                <input
+                  type="email"
+                  placeholder="Enter your email"
                   className="flex-grow bg-white/10 border border-white/20 rounded-2xl px-6 py-4 text-sm focus:outline-none focus:ring-2 focus:ring-pc-seaglass/50"
                 />
                 <Button variant="accent" size="lg">Subscribe</Button>
