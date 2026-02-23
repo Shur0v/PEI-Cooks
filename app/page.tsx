@@ -1,13 +1,13 @@
 'use client';
 
 import React, { useState } from 'react';
-import { 
+import {
   TopNav, Button, Badge, Footer, OrderModal, RecipeCard, CookCard, LogosStrip, FlipCard, ProgressBar, Accordion, Input
 } from '@/components/ui-library';
 import { cn } from '@/lib/utils';
-import { 
-  ArrowRight, BookOpen, MapPin, Calendar, Star, 
-  ChevronRight, UtensilsCrossed, Users, Store, Heart, Trophy, Check, Clock, Share2, Facebook, Instagram, Download, MessageSquare, Plus, Award, Search, Filter
+import {
+  ArrowRight, BookOpen, MapPin, Calendar, Star,
+  ChevronRight, ChevronLeft, UtensilsCrossed, Users, Store, Heart, Trophy, Check, Clock, Share2, Facebook, Instagram, Download, MessageSquare, Plus, Award, Search, Filter
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import Image from 'next/image';
@@ -15,6 +15,8 @@ import Image from 'next/image';
 export default function HomePage() {
   const [isOrderModalOpen, setIsOrderModalOpen] = useState(false);
   const [particles, setParticles] = useState<{ left: string; top: string; delay: number; duration: number; x: number }[]>([]);
+  const [testimonialIdx, setTestimonialIdx] = useState(0);
+  const [eventIdx, setEventIdx] = useState(0);
 
   React.useEffect(() => {
     const newParticles = [...Array(20)].map(() => ({
@@ -33,27 +35,27 @@ export default function HomePage() {
       <OrderModal isOpen={isOrderModalOpen} onClose={() => setIsOrderModalOpen(false)} />
 
       {/* 1. HERO SECTION */}
-      <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+      <section className="relative pt-20 pb-20 lg:pt-28 lg:pb-32 overflow-hidden">
         {/* Background Particles */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
           {particles.map((p, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 0 }}
-              animate={{ 
+              animate={{
                 opacity: [0, 0.4, 0],
                 y: [-20, -100],
                 x: p.x
               }}
-              transition={{ 
-                duration: p.duration, 
-                repeat: Infinity, 
-                delay: p.delay 
+              transition={{
+                duration: p.duration,
+                repeat: Infinity,
+                delay: p.delay
               }}
               className="absolute w-1 h-1 bg-pc-terracotta rounded-full"
-              style={{ 
-                left: p.left, 
-                top: p.top 
+              style={{
+                left: p.left,
+                top: p.top
               }}
             />
           ))}
@@ -71,7 +73,7 @@ export default function HomePage() {
           </div>
 
           <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
@@ -83,7 +85,7 @@ export default function HomePage() {
               <p className="text-xl text-pc-gray-700 mb-10 max-w-xl leading-relaxed">
                 Bringing Islanders and the Local Food Industry and Producers Together To Help Build a Better Food Future for Prince Edward Island.
               </p>
-              
+
               <div className="grid grid-cols-2 gap-6 mb-10">
                 {[
                   { label: "200 Pages", icon: <BookOpen size={20} /> },
@@ -100,38 +102,38 @@ export default function HomePage() {
                 ))}
               </div>
 
-              <Button 
-                size="lg" 
+              <Button
+                size="lg"
                 variant="accent"
-                onClick={() => setIsOrderModalOpen(true)} 
+                onClick={() => setIsOrderModalOpen(true)}
                 className="group relative overflow-hidden"
               >
                 <span className="relative z-10">Order Here</span>
-                <motion.div 
+                <motion.div
                   className="absolute bottom-2 left-8 right-8 h-0.5 bg-white scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"
                 />
               </Button>
             </motion.div>
 
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               className="relative"
             >
               <div className="relative aspect-[5/7] w-full max-w-md mx-auto rounded-3xl overflow-hidden shadow-2xl group cursor-pointer">
-                <Image 
-                  src="https://www.freelancer.com/fs/download-api.php?type=contest&id=2704687&filename=Copy%20of%20Colorful%20Homemade%20Recipes%20Cookbook%20eBook%20Cover%20%285%20x%207%20in%29.png" 
-                  alt="PEI Cooks Cookbook Cover" 
-                  fill 
+                <Image
+                  src="https://www.freelancer.com/fs/download-api.php?type=contest&id=2704687&filename=Copy%20of%20Colorful%20Homemade%20Recipes%20Cookbook%20eBook%20Cover%20%285%20x%207%20in%29.png"
+                  alt="PEI Cooks Cookbook Cover"
+                  fill
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
                   referrerPolicy="no-referrer"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-pc-navy/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </div>
-              
+
               {/* Floating Badge */}
-              <motion.div 
+              <motion.div
                 animate={{ y: [0, -10, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
                 className="absolute -top-6 -right-6 w-32 h-32 bg-pc-gold rounded-full flex flex-col items-center justify-center text-pc-navy text-center p-4 shadow-xl border-4 border-white rotate-12"
@@ -167,7 +169,7 @@ export default function HomePage() {
                 key={i}
                 front={
                   <div className="w-full h-full bg-pc-bg rounded-3xl p-8 flex flex-col items-center justify-center text-center border border-pc-navy/5 shadow-sm">
-                    <motion.span 
+                    <motion.span
                       initial={{ opacity: 0 }}
                       whileInView={{ opacity: 1 }}
                       className="text-5xl font-serif font-bold text-pc-terracotta mb-2"
@@ -215,7 +217,7 @@ export default function HomePage() {
                 className="relative group"
               >
                 <CookCard {...cook} />
-                <motion.div 
+                <motion.div
                   className="absolute top-4 right-4 text-pc-terracotta opacity-0 group-hover:opacity-100 transition-opacity"
                   whileHover={{ scale: 1.2 }}
                 >
@@ -237,15 +239,15 @@ export default function HomePage() {
           </div>
 
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <motion.div 
+            <motion.div
               whileHover={{ y: -10 }}
               className="pc-card overflow-hidden bg-white shadow-2xl"
             >
               <div className="relative aspect-video">
-                <Image 
-                  src="https://picsum.photos/seed/feature/800/600" 
-                  alt="Featured Recipe" 
-                  fill 
+                <Image
+                  src="https://picsum.photos/seed/feature/800/600"
+                  alt="Featured Recipe"
+                  fill
                   className="object-cover"
                   referrerPolicy="no-referrer"
                 />
@@ -268,7 +270,7 @@ export default function HomePage() {
                   { title: "Wild Blueberry Grunt", date: "2 Weeks Ago", image: "https://picsum.photos/seed/p2/200/200" },
                   { title: "Island Potato Salad", date: "3 Weeks Ago", image: "https://picsum.photos/seed/p3/200/200" },
                 ].map((recipe, i) => (
-                  <motion.div 
+                  <motion.div
                     key={i}
                     whileHover={{ x: 10 }}
                     className="flex items-center gap-4 p-4 bg-pc-bg rounded-2xl border border-pc-navy/5 cursor-pointer"
@@ -298,34 +300,75 @@ export default function HomePage() {
             <h2 className="text-4xl lg:text-5xl font-serif">What the Community Says</h2>
           </div>
 
-          <div className="flex gap-8 overflow-x-auto pb-12 no-scrollbar">
-            {[
+          {(() => {
+            const testimonials = [
               { name: "Heather MacDonald", text: "The lobster roll recipe is exactly how my grandmother used to make it. This book is a treasure for anyone who loves the island.", role: "Cookbook Owner" },
               { name: "David G.", text: "I've tried five recipes so far and each one has been a hit. The photography is stunning and the stories are so moving.", role: "Home Chef" },
               { name: "Sarah S.", text: "Finally, a cookbook that truly captures the essence of PEI. It's more than recipes, it's our history.", role: "Local Producer" },
               { name: "James L.", text: "The Acadian meat pie recipe is worth the price of the book alone. Highly recommended!", role: "Food Enthusiast" },
-            ].map((testimonial, i) => (
-              <motion.div 
-                key={i}
-                className="shrink-0 w-80 bg-white/5 border border-white/10 p-8 rounded-3xl backdrop-blur-sm"
-                whileHover={{ y: -10, backgroundColor: "rgba(255,255,255,0.1)" }}
-              >
-                <div className="flex gap-1 text-pc-gold mb-4">
-                  {[...Array(5)].map((_, j) => <Star key={j} size={16} fill="currentColor" />)}
+            ];
+            const visibleCount = 3;
+            const maxIdx = testimonials.length - visibleCount;
+            const visible = testimonials.slice(testimonialIdx, testimonialIdx + visibleCount);
+            return (
+              <div className="relative">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  <AnimatePresence mode="wait">
+                    {visible.map((testimonial, i) => (
+                      <motion.div
+                        key={testimonialIdx + i}
+                        initial={{ opacity: 0, x: 40 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: -40 }}
+                        transition={{ duration: 0.35, delay: i * 0.07 }}
+                        className="bg-white/5 border border-white/10 p-8 rounded-3xl backdrop-blur-sm"
+                        whileHover={{ y: -8, backgroundColor: "rgba(255,255,255,0.1)" }}
+                      >
+                        <div className="flex gap-1 text-pc-gold mb-4">
+                          {[...Array(5)].map((_, j) => <Star key={j} size={16} fill="currentColor" />)}
+                        </div>
+                        <p className="italic mb-6 text-white/80">&quot;{testimonial.text}&quot;</p>
+                        <div className="flex items-center gap-4">
+                          <div className="w-10 h-10 rounded-full bg-pc-terracotta flex items-center justify-center font-bold">
+                            {testimonial.name[0]}
+                          </div>
+                          <div>
+                            <p className="font-bold">{testimonial.name}</p>
+                            <p className="text-[10px] uppercase tracking-widest text-white/40">{testimonial.role}</p>
+                          </div>
+                        </div>
+                      </motion.div>
+                    ))}
+                  </AnimatePresence>
                 </div>
-                <p className="italic mb-6 text-white/80">&quot;{testimonial.text}&quot;</p>
-                <div className="flex items-center gap-4">
-                  <div className="w-10 h-10 rounded-full bg-pc-terracotta flex items-center justify-center font-bold">
-                    {testimonial.name[0]}
+                <div className="flex items-center justify-center gap-4 mt-10">
+                  <button
+                    onClick={() => setTestimonialIdx(i => Math.max(0, i - 1))}
+                    disabled={testimonialIdx === 0}
+                    className="w-12 h-12 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-all disabled:opacity-30 disabled:cursor-not-allowed"
+                  >
+                    <ChevronLeft size={22} />
+                  </button>
+                  <div className="flex gap-2">
+                    {Array.from({ length: maxIdx + 1 }).map((_, i) => (
+                      <button
+                        key={i}
+                        onClick={() => setTestimonialIdx(i)}
+                        className={`w-2 h-2 rounded-full transition-all ${testimonialIdx === i ? 'bg-pc-gold w-6' : 'bg-white/30'}`}
+                      />
+                    ))}
                   </div>
-                  <div>
-                    <p className="font-bold">{testimonial.name}</p>
-                    <p className="text-[10px] uppercase tracking-widest text-white/40">{testimonial.role}</p>
-                  </div>
+                  <button
+                    onClick={() => setTestimonialIdx(i => Math.min(maxIdx, i + 1))}
+                    disabled={testimonialIdx === maxIdx}
+                    className="w-12 h-12 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-all disabled:opacity-30 disabled:cursor-not-allowed"
+                  >
+                    <ChevronRight size={22} />
+                  </button>
                 </div>
-              </motion.div>
-            ))}
-          </div>
+              </div>
+            );
+          })()}
         </div>
       </section>
 
@@ -346,14 +389,14 @@ export default function HomePage() {
             </div>
 
             <div className="relative">
-              <motion.div 
+              <motion.div
                 whileHover={{ scale: 1.05, rotate: -2 }}
                 className="relative aspect-square max-w-sm mx-auto rounded-3xl overflow-hidden shadow-2xl border-8 border-white"
               >
-                <Image 
-                  src="https://picsum.photos/seed/profile/600/600" 
-                  alt="Profile Frame Preview" 
-                  fill 
+                <Image
+                  src="https://picsum.photos/seed/profile/600/600"
+                  alt="Profile Frame Preview"
+                  fill
                   className="object-cover"
                   referrerPolicy="no-referrer"
                 />
@@ -363,7 +406,7 @@ export default function HomePage() {
                   I Love PEI Good Eats
                 </div>
               </motion.div>
-              
+
               {/* Instagram Mockup Decor */}
               <div className="absolute -bottom-12 -right-12 w-32 h-32 bg-pc-gold rounded-2xl -z-10 rotate-12" />
               <div className="absolute -top-12 -left-12 w-24 h-24 bg-pc-seaglass rounded-full -z-10" />
@@ -381,7 +424,7 @@ export default function HomePage() {
           </div>
 
           <div className="grid lg:grid-cols-2 gap-16">
-            <Accordion 
+            <Accordion
               items={[
                 { title: "Food Future-Proofing", content: "We work with local producers to ensure sustainable food systems for Prince Edward Island, focusing on regenerative agriculture and coastal preservation." },
                 { title: "Supporting Local", content: "Every cookbook sale directly supports island home cooks and small-scale food producers through our community grant program." },
@@ -402,7 +445,7 @@ export default function HomePage() {
                 </div>
                 <div className="relative">
                   <label className="block text-xs font-semibold text-pc-navy uppercase tracking-wider mb-1.5">Your Idea</label>
-                  <textarea 
+                  <textarea
                     className="w-full px-4 py-3 bg-white border border-pc-gray-300 rounded-xl text-sm transition-all focus:border-pc-navy pc-focus-ring min-h-[120px]"
                     placeholder="Tell us how we can help..."
                   />
@@ -429,13 +472,13 @@ export default function HomePage() {
                   <div className="w-6 h-6 bg-pc-gold/20 rounded-full flex items-center justify-center text-pc-gold">
                     <Check size={14} />
                   </div>
-                  <span className="text-sm font-bold">E-transfer Only</span>
+                  <span className="text-sm font-bold text-white">E-transfer Only</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <div className="w-6 h-6 bg-pc-gold/20 rounded-full flex items-center justify-center text-pc-gold">
                     <Check size={14} />
                   </div>
-                  <span className="text-sm font-bold">Local Pickup Available</span>
+                  <span className="text-sm font-bold text-white">Local Pickup Available</span>
                 </div>
               </div>
             </div>
@@ -487,9 +530,9 @@ export default function HomePage() {
             <div className="flex flex-wrap gap-4">
               <div className="relative">
                 <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-pc-muted" size={18} />
-                <input 
-                  type="text" 
-                  placeholder="Search vendors..." 
+                <input
+                  type="text"
+                  placeholder="Search vendors..."
                   className="pl-12 pr-4 py-3 bg-white border border-pc-gray-300 rounded-xl text-sm focus:border-pc-navy pc-focus-ring w-64"
                 />
               </div>
@@ -505,7 +548,7 @@ export default function HomePage() {
                 { name: "Island Artisans", area: "Montague", type: "Pickup Only", image: "https://picsum.photos/seed/v3/400/300" },
                 { name: "Coastal Pantry", area: "Souris", type: "Ships & Pickup", image: "https://picsum.photos/seed/v4/400/300" },
               ].map((vendor, i) => (
-                <motion.div 
+                <motion.div
                   key={i}
                   whileHover={{ y: -5 }}
                   className="bg-white p-6 rounded-3xl border border-pc-navy/5 shadow-sm group cursor-pointer"
@@ -533,10 +576,10 @@ export default function HomePage() {
                   <p className="text-[10px] mt-2">Explore vendors across Prince Edward Island</p>
                 </div>
                 {/* Mock Pins */}
-                <motion.div 
+                <motion.div
                   animate={{ scale: [1, 1.2, 1] }}
                   transition={{ duration: 2, repeat: Infinity }}
-                  className="absolute top-1/3 left-1/2 w-4 h-4 bg-pc-terracotta rounded-full border-2 border-white shadow-lg" 
+                  className="absolute top-1/3 left-1/2 w-4 h-4 bg-pc-terracotta rounded-full border-2 border-white shadow-lg"
                 />
                 <div className="absolute top-1/2 left-1/4 w-4 h-4 bg-pc-navy rounded-full border-2 border-white shadow-lg" />
                 <div className="absolute bottom-1/4 right-1/3 w-4 h-4 bg-pc-seaglass rounded-full border-2 border-white shadow-lg" />
@@ -569,52 +612,90 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="flex gap-8 overflow-x-auto pb-12 no-scrollbar">
-            {[
+          {(() => {
+            const events = [
               { title: "Summer Harvest Dinner", date: "Aug 15, 2024", location: "Orwell Corner", price: "$65", image: "https://picsum.photos/seed/e1/600/400" },
               { title: "Seafood Chowder Workshop", date: "Aug 22, 2024", location: "Charlottetown", price: "$45", image: "https://picsum.photos/seed/e2/600/400" },
               { title: "Preserving the Island", date: "Sept 05, 2024", location: "Summerside", price: "$30", image: "https://picsum.photos/seed/e3/600/400" },
               { title: "Acadian Kitchen Party", date: "Sept 12, 2024", location: "Abram-Village", price: "$25", image: "https://picsum.photos/seed/e4/600/400" },
-            ].map((event, i) => (
-              <motion.div 
-                key={i}
-                className="shrink-0 w-80 group cursor-pointer"
-                whileHover={{ y: -10 }}
-              >
-                <div className="relative aspect-[4/3] rounded-3xl overflow-hidden mb-6 shadow-lg">
-                  <Image src={event.image} alt={event.title} fill className="object-cover transition-transform duration-500 group-hover:scale-110" referrerPolicy="no-referrer" />
-                  <div className="absolute top-4 left-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-[10px] font-bold text-pc-navy uppercase tracking-widest">
-                    {event.price}
-                  </div>
-                  <motion.button 
-                    whileTap={{ scale: 0.9 }}
-                    className="absolute bottom-4 right-4 bg-pc-terracotta text-white p-3 rounded-full shadow-xl opacity-0 group-hover:opacity-100 transition-opacity"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      // Confetti effect logic would go here
-                    }}
+            ];
+            const visibleCount = 3;
+            const maxIdx = events.length - visibleCount;
+            const visible = events.slice(eventIdx, eventIdx + visibleCount);
+            return (
+              <div className="relative">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                  <AnimatePresence mode="wait">
+                    {visible.map((event, i) => (
+                      <motion.div
+                        key={eventIdx + i}
+                        initial={{ opacity: 0, x: 40 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: -40 }}
+                        transition={{ duration: 0.35, delay: i * 0.07 }}
+                        className="group cursor-pointer"
+                        whileHover={{ y: -10 }}
+                      >
+                        <div className="relative aspect-[4/3] rounded-3xl overflow-hidden mb-6 shadow-lg">
+                          <Image src={event.image} alt={event.title} fill className="object-cover transition-transform duration-500 group-hover:scale-110" referrerPolicy="no-referrer" />
+                          <div className="absolute top-4 left-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-[10px] font-bold text-pc-navy uppercase tracking-widest">
+                            {event.price}
+                          </div>
+                          <motion.button
+                            whileTap={{ scale: 0.9 }}
+                            className="absolute bottom-4 right-4 bg-pc-terracotta text-white p-3 rounded-full shadow-xl opacity-0 group-hover:opacity-100 transition-opacity"
+                            onClick={(e) => e.stopPropagation()}
+                          >
+                            <Star size={20} fill="currentColor" />
+                          </motion.button>
+                        </div>
+                        <h4 className="font-serif text-xl mb-2 group-hover:text-pc-terracotta transition-colors">{event.title}</h4>
+                        <div className="space-y-2">
+                          <div className="flex items-center gap-2 text-xs text-pc-muted">
+                            <Calendar size={14} />
+                            <span>{event.date}</span>
+                          </div>
+                          <div className="flex items-center gap-2 text-xs text-pc-muted">
+                            <MapPin size={14} />
+                            <span>{event.location}</span>
+                          </div>
+                        </div>
+                        <div className="mt-6 flex gap-2">
+                          <Button variant="primary" size="sm" className="flex-grow">Register</Button>
+                          <Button variant="outline" size="sm" className="px-3"><Share2 size={16} /></Button>
+                        </div>
+                      </motion.div>
+                    ))}
+                  </AnimatePresence>
+                </div>
+                <div className="flex items-center justify-center gap-4 mt-10">
+                  <button
+                    onClick={() => setEventIdx(i => Math.max(0, i - 1))}
+                    disabled={eventIdx === 0}
+                    className="w-12 h-12 rounded-full bg-pc-navy border border-pc-navy/20 flex items-center justify-center text-white hover:bg-pc-terracotta transition-all disabled:opacity-30 disabled:cursor-not-allowed shadow-md"
                   >
-                    <Star size={20} fill="currentColor" />
-                  </motion.button>
-                </div>
-                <h4 className="font-serif text-xl mb-2 group-hover:text-pc-terracotta transition-colors">{event.title}</h4>
-                <div className="space-y-2">
-                  <div className="flex items-center gap-2 text-xs text-pc-muted">
-                    <Calendar size={14} />
-                    <span>{event.date}</span>
+                    <ChevronLeft size={22} />
+                  </button>
+                  <div className="flex gap-2">
+                    {Array.from({ length: maxIdx + 1 }).map((_, i) => (
+                      <button
+                        key={i}
+                        onClick={() => setEventIdx(i)}
+                        className={`h-2 rounded-full transition-all ${eventIdx === i ? 'bg-pc-terracotta w-6' : 'bg-pc-gray-300 w-2'}`}
+                      />
+                    ))}
                   </div>
-                  <div className="flex items-center gap-2 text-xs text-pc-muted">
-                    <MapPin size={14} />
-                    <span>{event.location}</span>
-                  </div>
+                  <button
+                    onClick={() => setEventIdx(i => Math.min(maxIdx, i + 1))}
+                    disabled={eventIdx === maxIdx}
+                    className="w-12 h-12 rounded-full bg-pc-navy border border-pc-navy/20 flex items-center justify-center text-white hover:bg-pc-terracotta transition-all disabled:opacity-30 disabled:cursor-not-allowed shadow-md"
+                  >
+                    <ChevronRight size={22} />
+                  </button>
                 </div>
-                <div className="mt-6 flex gap-2">
-                  <Button variant="primary" size="sm" className="flex-grow">Register</Button>
-                  <Button variant="outline" size="sm" className="px-3"><Share2 size={16} /></Button>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+              </div>
+            );
+          })()}
         </div>
       </section>
 
@@ -628,20 +709,20 @@ export default function HomePage() {
               <p className="text-white/70 mb-12 leading-relaxed">
                 Showcase your culinary skills and celebrate island flavors. Enter our seasonal competitions for a chance to be featured in our next volume.
               </p>
-              
+
               <div className="space-y-8">
-                <div className="bg-white/5 border border-white/10 p-8 rounded-3xl">
+                <div className="bg-white/15 border border-white/20 p-8 rounded-3xl">
                   <div className="flex items-center justify-between mb-6">
                     <div className="flex items-center gap-3">
                       <div className="w-10 h-10 bg-pc-gold/20 rounded-xl flex items-center justify-center text-pc-gold">
                         <Trophy size={20} />
                       </div>
-                      <h4 className="font-serif text-xl">Collect the Cooks</h4>
+                      <h4 className="font-serif text-xl text-white">Collect the Cooks</h4>
                     </div>
                     <Badge variant="gold">Active</Badge>
                   </div>
                   <ProgressBar progress={65} label="Book Signing Tracker" />
-                  <p className="text-xs text-white/40 mt-4 italic">Get your cookbook signed by 10 featured cooks to unlock a special island gift.</p>
+                  <p className="text-xs text-white/70 mt-4 italic">Get your cookbook signed by 10 featured cooks to unlock a special island gift.</p>
                 </div>
 
                 <div className="grid sm:grid-cols-2 gap-6">
@@ -649,10 +730,10 @@ export default function HomePage() {
                     { title: "Cooking My Way Through", icon: <UtensilsCrossed size={18} />, progress: 40 },
                     { title: "Next Cookbook Entry", icon: <Plus size={18} />, progress: 10 },
                   ].map((comp, i) => (
-                    <div key={i} className="bg-white/5 border border-white/10 p-6 rounded-2xl">
+                    <div key={i} className="bg-white/15 border border-white/20 p-6 rounded-2xl">
                       <div className="flex items-center gap-2 mb-4 text-pc-gold">
                         {comp.icon}
-                        <span className="font-bold text-xs uppercase tracking-widest">{comp.title}</span>
+                        <span className="font-bold text-xs uppercase tracking-widest text-white">{comp.title}</span>
                       </div>
                       <ProgressBar progress={comp.progress} label="Progress" />
                     </div>
@@ -664,7 +745,7 @@ export default function HomePage() {
             <div className="bg-white p-10 rounded-[40px] text-pc-navy shadow-2xl">
               <h3 className="text-2xl font-serif mb-6 text-center">Nominate Your Favorite</h3>
               <p className="text-sm text-pc-muted text-center mb-10">Know an amazing island home cook? Nominate them for our next volume.</p>
-              
+
               <div className="space-y-6">
                 <div className="aspect-video bg-pc-bg rounded-2xl border-2 border-dashed border-pc-gray-300 flex flex-col items-center justify-center text-pc-muted group cursor-pointer hover:border-pc-terracotta transition-colors">
                   <motion.div whileHover={{ scale: 1.1 }}>
@@ -690,15 +771,15 @@ export default function HomePage() {
         <div className="pc-container">
           <div className="grid lg:grid-cols-12 gap-16 items-center">
             <div className="lg:col-span-5 relative">
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, x: -50 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 className="relative z-10 aspect-[3/4] rounded-[40px] overflow-hidden shadow-2xl"
               >
-                <Image 
-                  src="https://static.wixstatic.com/media/750bbb_b6e09b17d66a4ed8a9241020175cff30~mv2.jpg/v1/crop/x_107,y_0,w_1429,h_1914/fill/w_160,h_214,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/milton.jpg" 
-                  alt="Parry Milton" 
-                  fill 
+                <Image
+                  src="https://static.wixstatic.com/media/750bbb_b6e09b17d66a4ed8a9241020175cff30~mv2.jpg/v1/crop/x_107,y_0,w_1429,h_1914/fill/w_160,h_214,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/milton.jpg"
+                  alt="Parry Milton"
+                  fill
                   className="object-cover"
                   referrerPolicy="no-referrer"
                 />
@@ -727,9 +808,9 @@ export default function HomePage() {
                     { title: "The History of Red Soil Potatoes", date: "Aug 10", link: "peicanada.com" },
                     { title: "Coastal Foraging Traditions", date: "Aug 03", link: "peicanada.com" },
                   ].map((column, i) => (
-                    <a 
-                      key={i} 
-                      href="#" 
+                    <a
+                      key={i}
+                      href="#"
                       className="p-6 bg-pc-bg rounded-2xl border border-pc-navy/5 hover:border-pc-terracotta transition-all group"
                     >
                       <p className="text-[10px] font-bold text-pc-terracotta uppercase tracking-widest mb-2">{column.date}</p>
@@ -763,11 +844,11 @@ export default function HomePage() {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="space-y-8">
               <Badge variant="gold">The Foundation</Badge>
-              <h2 className="text-4xl lg:text-6xl font-serif">PEI Food Strong, Inc.</h2>
-              <p className="text-lg text-white/70 leading-relaxed">
+              <h2 className="text-4xl lg:text-6xl font-serif text-white">PEI Food Strong, Inc.</h2>
+              <p className="text-lg text-white/80 leading-relaxed">
                 Our mission is to build a resilient, sustainable, and inclusive food future for Prince Edward Island. We believe that by connecting producers, cooks, and consumers, we can create a stronger community.
               </p>
-              
+
               <div className="grid grid-cols-2 gap-8 pt-8">
                 {[
                   { count: 12, label: "Active Programs", icon: <Award size={24} /> },
@@ -775,7 +856,7 @@ export default function HomePage() {
                   { count: 25, label: "Local Partners", icon: <Store size={24} /> },
                   { count: 100, label: "Island Impact", icon: <Heart size={24} />, suffix: "%" },
                 ].map((stat, i) => (
-                  <motion.div 
+                  <motion.div
                     key={i}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -783,8 +864,8 @@ export default function HomePage() {
                     className="space-y-2"
                   >
                     <div className="text-pc-gold mb-2">{stat.icon}</div>
-                    <p className="text-3xl font-serif font-bold">{stat.count}{stat.suffix}</p>
-                    <p className="text-[10px] font-bold uppercase tracking-widest text-white/40">{stat.label}</p>
+                    <p className="text-3xl font-serif font-bold text-white">{stat.count}{stat.suffix}</p>
+                    <p className="text-[10px] font-bold uppercase tracking-widest text-white/70">{stat.label}</p>
                   </motion.div>
                 ))}
               </div>
@@ -792,15 +873,15 @@ export default function HomePage() {
 
             <div className="relative">
               <div className="aspect-video rounded-[40px] overflow-hidden relative z-10 shadow-2xl">
-                <Image 
-                  src="https://picsum.photos/seed/impact/800/600" 
-                  alt="Community Impact" 
-                  fill 
+                <Image
+                  src="https://picsum.photos/seed/impact/800/600"
+                  alt="Community Impact"
+                  fill
                   className="object-cover"
                   referrerPolicy="no-referrer"
                 />
                 <div className="absolute inset-0 bg-pc-navy/20 flex items-center justify-center">
-                  <motion.button 
+                  <motion.button
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
                     className="w-20 h-20 bg-white text-pc-navy rounded-full flex items-center justify-center shadow-2xl"

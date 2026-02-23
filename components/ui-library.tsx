@@ -1,9 +1,9 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { 
-  Menu, X, ShoppingCart, Heart, Search, MapPin, Calendar, 
-  ChevronRight, ArrowRight, Star, Share2, Printer, 
+import {
+  Menu, X, ShoppingCart, Heart, Search, MapPin, Calendar,
+  ChevronRight, ArrowRight, Star, Share2, Printer,
   CheckCircle2, AlertCircle, Clock, Users, UtensilsCrossed,
   Filter, Grid, List, LayoutDashboard, BookOpen, UserCircle,
   Store, MessageSquare, Trophy, Plus, Trash2, Check, XCircle
@@ -63,8 +63,8 @@ export const Button = React.forwardRef<
 });
 Button.displayName = 'Button';
 
-export const Badge = ({ children, variant = 'default', className }: { 
-  children: React.ReactNode; 
+export const Badge = ({ children, variant = 'default', className }: {
+  children: React.ReactNode;
   variant?: 'default' | 'seaglass' | 'gold' | 'terracotta' | 'outline';
   className?: string;
 }) => {
@@ -108,13 +108,13 @@ Input.displayName = 'Input';
 
 // --- MOLECULES ---
 
-export const RecipeCard = ({ 
-  title, cook, time, image, tags, variant = 'grid' 
-}: { 
-  title: string; cook: string; time: string; image: string; tags: string[]; variant?: 'grid' | 'large' | 'compact' 
+export const RecipeCard = ({
+  title, cook, time, image, tags, variant = 'grid'
+}: {
+  title: string; cook: string; time: string; image: string; tags: string[]; variant?: 'grid' | 'large' | 'compact'
 }) => {
   return (
-    <motion.div 
+    <motion.div
       whileHover={{ y: -6 }}
       className={cn(
         "pc-card group cursor-pointer",
@@ -125,10 +125,10 @@ export const RecipeCard = ({
         "relative overflow-hidden",
         variant === 'large' ? 'w-full md:w-1/2 aspect-[4/3]' : 'w-full aspect-[4/3]'
       )}>
-        <Image 
-          src={image} 
-          alt={title} 
-          fill 
+        <Image
+          src={image}
+          alt={title}
+          fill
           className="object-cover transition-transform duration-500 group-hover:scale-110"
           referrerPolicy="no-referrer"
         />
@@ -207,10 +207,10 @@ export const TopNav = ({ onOrderClick }: { onOrderClick: () => void }) => {
         <div className="pc-container flex items-center justify-between">
           <div className="flex items-center gap-4">
             <div className="relative w-12 h-12">
-              <Image 
-                src="https://www.freelancer.com/fs/download-api.php?type=contest&id=2704687&filename=peicooksfinal.png" 
-                alt="PEI Cooks Logo" 
-                fill 
+              <Image
+                src="https://www.freelancer.com/fs/download-api.php?type=contest&id=2704687&filename=peicooksfinal.png"
+                alt="PEI Cooks Logo"
+                fill
                 className="object-contain"
                 referrerPolicy="no-referrer"
               />
@@ -228,7 +228,7 @@ export const TopNav = ({ onOrderClick }: { onOrderClick: () => void }) => {
 
           <div className="flex items-center gap-3">
             <Button variant="primary" size="sm" onClick={onOrderClick} leftIcon={<ShoppingCart size={16} />}>Order Book</Button>
-            <button 
+            <button
               className="lg:hidden p-2 text-pc-navy"
               onClick={() => setIsMobileMenuOpen(true)}
             >
@@ -240,7 +240,7 @@ export const TopNav = ({ onOrderClick }: { onOrderClick: () => void }) => {
 
       <AnimatePresence>
         {isMobileMenuOpen && (
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: '100%' }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: '100%' }}
@@ -255,9 +255,9 @@ export const TopNav = ({ onOrderClick }: { onOrderClick: () => void }) => {
             <div className="p-6 space-y-6 flex-grow">
               <div className="relative">
                 <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-pc-muted" size={18} />
-                <input 
-                  type="text" 
-                  placeholder="Search recipes, cooks..." 
+                <input
+                  type="text"
+                  placeholder="Search recipes, cooks..."
                   className="w-full pl-12 pr-4 py-4 bg-pc-gray-300/50 rounded-2xl text-sm focus:outline-none focus:ring-2 focus:ring-pc-navy/10"
                 />
               </div>
@@ -287,14 +287,14 @@ export const OrderModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =
 
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         className="absolute inset-0 bg-pc-navy/40 backdrop-blur-sm"
         onClick={onClose}
       />
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, scale: 0.9, y: 20 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
         className="relative w-full max-w-lg bg-pc-bg rounded-3xl shadow-2xl overflow-hidden"
@@ -433,9 +433,9 @@ export const Accordion = ({ items }: { items: { title: string; content: string }
             className="w-full px-6 py-4 flex items-center justify-between text-left hover:bg-pc-bg transition-colors"
           >
             <span className="font-serif font-bold text-pc-navy">{item.title}</span>
-            <ChevronRight 
-              className={cn("transition-transform duration-300 text-pc-terracotta", openIndex === index && "rotate-90")} 
-              size={20} 
+            <ChevronRight
+              className={cn("transition-transform duration-300 text-pc-terracotta", openIndex === index && "rotate-90")}
+              size={20}
             />
           </button>
           <AnimatePresence>
@@ -463,7 +463,7 @@ export const FlipCard = ({ front, back }: { front: React.ReactNode; back: React.
   const [isFlipped, setIsFlipped] = useState(false);
 
   return (
-    <div 
+    <div
       className="relative w-full h-64 [perspective:1000px] cursor-pointer"
       onMouseEnter={() => setIsFlipped(true)}
       onMouseLeave={() => setIsFlipped(false)}
@@ -487,12 +487,12 @@ export const FlipCard = ({ front, back }: { front: React.ReactNode; back: React.
 // --- PROGRESS BAR ---
 export const ProgressBar = ({ progress, label }: { progress: number; label: string }) => (
   <div className="space-y-2">
-    <div className="flex justify-between text-[10px] font-bold uppercase tracking-widest text-pc-navy">
+    <div className="flex justify-between text-[10px] font-bold uppercase tracking-widest opacity-90">
       <span>{label}</span>
       <span>{progress}%</span>
     </div>
-    <div className="h-2 bg-pc-navy/5 rounded-full overflow-hidden">
-      <motion.div 
+    <div className="h-2 bg-white/20 rounded-full overflow-hidden">
+      <motion.div
         initial={{ width: 0 }}
         whileInView={{ width: `${progress}%` }}
         transition={{ duration: 1, ease: "easeOut" }}
@@ -513,14 +513,14 @@ export const LogosStrip = () => {
   ];
 
   return (
-    <div className="flex flex-wrap items-center justify-center gap-8 lg:gap-12 py-8 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-500">
+    <div className="flex flex-wrap items-center justify-center gap-10 lg:gap-16 py-10 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-500">
       {logos.map((logo, i) => (
-        <div key={i} className="relative h-12 w-32">
-          <Image 
-            src={logo} 
-            alt={`Partner Logo ${i + 1}`} 
-            fill 
-            className="object-contain"
+        <div key={i} className="relative h-36 w-36 flex-shrink-0">
+          <Image
+            src={logo}
+            alt={`Partner Logo ${i + 1}`}
+            fill
+            className={`object-contain${i === 1 ? ' scale-150' : i === 4 ? ' scale-120' : ''}`}
             referrerPolicy="no-referrer"
           />
         </div>
@@ -576,9 +576,9 @@ export const Footer = () => {
             <h4 className="font-serif text-lg mb-6">Newsletter</h4>
             <p className="text-sm text-white/60 mb-4">Get island recipes and event updates in your inbox.</p>
             <div className="flex gap-2">
-              <input 
-                type="email" 
-                placeholder="Email address" 
+              <input
+                type="email"
+                placeholder="Email address"
                 className="bg-white/10 border border-white/20 rounded-lg px-4 py-2 text-sm flex-grow focus:outline-none focus:ring-2 focus:ring-pc-seaglass/50"
               />
               <Button variant="accent" size="sm">Join</Button>

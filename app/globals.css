@@ -36,9 +36,28 @@ body {
   font-family: var(--font-sans), sans-serif;
 }
 
-h1, h2, h3, h4, .font-serif {
+h1,
+h2,
+h3,
+h4 {
   font-family: var(--font-serif), serif;
   color: var(--pc-navy);
+}
+
+.font-serif {
+  font-family: var(--font-serif), serif;
+}
+
+/* Allow explicit text-color utilities to override the default heading color */
+[class*="text-white"] h1,
+[class*="text-white"] h2,
+[class*="text-white"] h3,
+[class*="text-white"] h4,
+h1[class*="text-white"],
+h2[class*="text-white"],
+h3[class*="text-white"],
+h4[class*="text-white"] {
+  color: inherit;
 }
 
 .pc-focus-ring {
